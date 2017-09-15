@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('groups/store',['uses'=>'GroupsController@store', 'as'=>'groups.store']);
+Route::get('/contacts/autoComplete',['uses'=>'ContactsController@autoComplete', 'as'=>'contacts.autoComplete']);
+Route::resource('/contacts','ContactsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
